@@ -1,0 +1,112 @@
+<!-- 
+    <header> cabeçalho do site
+    <nav> menu de navegação
+    <section> seção do site (corpo do site)
+    <article> artigo do site
+    <aside> barra lateral do site
+    <footer> rodapé do site
+    <h1> até <h6> títulos
+    <p> parágrafos
+    <a> links
+    <img> imagens
+    <ul> listas não ordenadas
+    <ol> listas ordenadas
+    <li> itens das listas
+    <table> tabelas
+    <tr> linhas das tabelas
+    <td> células das tabelas
+    <form> formulários
+    <input> campos de formulários
+    <button> botões de formulários
+    <label> rótulos de formulários
+    <select> caixas de seleção
+    <option> opções de caixas de seleção
+    <textarea> caixas de texto
+    <iframe> quadros de incorporação
+    <audio> áudios
+    <video> vídeos
+    <canvas> desenhos
+    <svg> gráficos vetoriais
+    <map> mapas de imagens
+    <area> áreas de mapas de imagens
+    <script> scripts
+    <noscript> conteúdo alternativo para scripts desativados
+    <meta> metadados
+    <link> links
+    <style> estilos
+    <div> divisões genéricas
+    <span> divisões genéricas
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <style>
+        header, footer, nav, section, aside {
+            background-color: brown;
+            color: white;
+        }
+        article {
+            border: 5px solid white;
+            margin: 5px;
+            padding: 5px;
+            background-color: pink ;
+        }
+        header{
+            grid-area: header;
+        }
+        nav{
+            grid-area: menu;
+        }
+        section{
+            grid-area: main;
+        }
+        aside{
+            grid-area: sidebar;
+        }
+        footer{
+            grid-area: footer;
+        }
+        body{
+            display: grid;
+            grid-template-areas: "header header header header header header"
+                                 "menu menu menu menu menu menu"
+                                 "main main main main main sidebar"
+                                 "footer footer footer footer footer footer";
+            grid-gap: 10px;
+            padding: 10px; 
+            }
+ </style>
+ <body>
+    <header>
+        <h1>Titulo da Pagina</h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li>
+                    Item de Menu
+                </li>
+            </ul>
+        </nav>
+        <article>
+            <h2>Titulo do Artigo 1</h2>
+            <p>Conteudo do Artigo 1</p>
+        </article>
+        <article>
+            <h2>Titulo do Artigo 2</h2>
+            <p>Conteudo do Artigo 2</p>
+        </article>
+    </section>
+    <aside>
+        <h3>Barra Lateral</h3>
+        <p>Conteudo da Barra Lateral</p>
+    </aside>
+    <footer>
+        <p>Rodapé do Site</p>
+    </footer>
+ </body>
+ </html>
