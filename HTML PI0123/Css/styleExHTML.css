@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box; /*organiza o layout da página por caixas */ 
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  header{
+        background-color:grey;
+        padding: 30px;
+        font-size: 35px;
+        text-align: center;
+        color: white;
+  }
+  /*clearfix hack --> para limpar as flutuações dos elementos / resert dos floats a esquerda 
+  section:after{
+      content: "";
+      display: table;
+      clear: both;
+  }
+  */
+  nav{
+      float: left;
+      width: 30%;
+      height: 300px;
+      background-color: lightgrey;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  article{
+          float: left;
+          padding: 20px;
+          width: 70%;
+          background-color: white;
+  }
+  footer{
+        background-color: grey;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        clear: both;
+  }
+  nav li{
+        list-style-type: none;
+        padding: 0;
+      
+  }
+
+  /*layout responsivo --> transformar as colunas nav e article de forma a que fiquem sobrepostas em ecras menores */
+  @media (max-width: 600px){
+      nav, article{
+          width: 100%;
+          height: auto;
+      }
+  }
