@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      font-size: 12pt;
+      padding: 30px;
+    }
+  </style>
+  <body>
+    <h1>Interagir com Numeros</h1>
+    <button onclick="dobrometade()">Dobro</button>
+    <section id="res">
+      <p>Aqui Vai Aparecer o Resultado!</p>
+    </section>
+    <script>
+      // O Dobro de X é 2X, A metade é X/2
+      function dobrometade() {
+        let numero = window.prompt("Digite um número");
+        let res = window.document.getElementById("res");
+        res.innerHTML = `O dobro de ${numero} é ${numero * 2} e a metade é ${
+          numero / 2
+        }`;
+      }
+    </script>
+  </body>
+</html>
+<!-- var: variavel global-->
+<!-- let: variavel local-->
+<!-- const: variavel constante-->

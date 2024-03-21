@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      font-size: 12pt;
+      padding: 30px;
+    }
+  </style>
+  <body>
+    <h1>Interagir com Dados</h1>
+    <button onclick="clicou()">Clique Aqui</button>
+    <section id="res">
+        <p>Aqui Vai Aparecer o Resultado!</p>
+    </section>
+    <script>
+      function clicou() {
+        let nome = window.prompt("Qual é o seu nome?");
+        window.alert(`Olá, ${nome}!`);
+        let res = window.document.getElementById("res");
+        res.innerHTML = `Acabou de escrever ${nome}`;
+      }
+    </script>
+  </body>
+</html>
+<!-- var: variavel global-->
+<!-- let: variavel local-->
+<!-- const: variavel constante--> 
