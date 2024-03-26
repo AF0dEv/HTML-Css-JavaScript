@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            margin-top: 50px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            animation: scale 1s infinite;
+            background-color: #45a049;
+        }
+
+        @keyframes scale {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(2);
+            }
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        #cliqueBotao {
+            margin-bottom: 20px;
+        }
+
+        #contadorClique {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">C<span>o</span>ntador de Cliques</h1>
+    <div>
+    <button id="cliqueBotao">Click me</button> 
+    <button id="resetarBotao">Reset Counter</button> <!-- Adicionado botão de reset -->
+    </div>
+    <br>
+    <p id="contadorClique">Numero de Cliques: 0</p>
+
+    <script>
+        var contador = 0;
+        var clique = document.getElementById("cliqueBotao");
+        var contadorClique = document.getElementById("contadorClique");
+
+        clique.addEventListener("click", function() {
+            contador++;
+            contadorClique.textContent = 'Numero de Cliques: ' + contador;
+        });
+
+        var resetarBotao = document.getElementById("resetarBotao");
+        resetarBotao.addEventListener("click", function() {
+            contador = 0;
+            contadorClique.textContent = 'Numero de Cliques: ' + contador;
+        });
+
+        // var titulo = document.getElementById("titulo");
+        // titulo.addEventListener("mouseover", function() {
+        //    for (const child of titulo.children) 
+        //    {
+        //        child.style.position = "absolute";
+        //        child.style.top = Math.floor(Math.random() * 100) + "px";
+        //        child.style.transition = "top 2s"; 
+        //    }});
+    </script>
+</body>
+</html>
