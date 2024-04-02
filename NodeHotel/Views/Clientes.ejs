@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Clientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% clientes.forEach(cliente => { %>
+                <tr>
+                    <td><%= cliente.cliente_id %></td>
+                    <td><%= cliente.nome %></td>
+                    <td><%= cliente.email %></td>
+                    <td><%= cliente.telefone %></td>
+                    <td>
+                        <button onclick="editarCliente('<%= cliente.cliente_id %>','<%= cliente.nome %>','<%= cliente.email %>','<%= cliente.telefone %>')">Editar</button>
+                        <button onclick="removerCliente('<%= cliente.cliente_id %>')">Remover</button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <h2>Adicionar Cliente</h2>
+    <form action="/clientes/adicionar" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="NOME...">
+    </br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="EMAIL...">
+    </br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="TELEFONE...">
+    </br>
+        <button type="submit">Adicionar</button>
+    </form>
+</br>
+    <script>
+        function editarCliente(cliente_id, nome, email, telefone) {
+            document.getElementById('editId').value = cliente_id;
+            document.getElementById('editNome').value = nome;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editTelefone').value = telefone;
+
+            document.getElementById('formEdit').style.display = 'block';
+        }
+
+        function cancelarEdicao() {
+            document.getElementById('editId').value = '';
+            document.getElementById('editNome').value = '';
+            document.getElementById('editEmail').value = '' ;
+            document.getElementById('editTelefone').value = '';
+        }
+       
+       function atualizarCliente() {
+            const cliente_id = document.getElementById('editId').value;
+            const nome = document.getElementById('editNome').value;
+            const email = document.getElementById('editEmail').value;
+            const telefone = document.getElementById('editTelefone').value;
+
+            fetch(`/clientes/${cliente_id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome, email, telefone })
+            })
+            .then(response => {
+                if (response.ok){
+                    location.reload();
+                }else {
+                    throw new Error('Erro ao atualizar cliente');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+    </script>
+
+    <form id="formEdit" style="display: none;" onsubmit="atualizarCliente(); return false;">
+        <input type="hidden" id="editId" name="cliente_id">
+        
+        <label for="editNome">Nome:</label>
+        <input type="text" id="editNome" name="nome" placeholder="NOME..." required>
+    </br>
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail" name="email" placeholder="EMAIL..." required>
+    </br>
+        <label for="editTelefone">Telefone:</label>
+        <input type="text" id="editTelefone" name="telefone" placeholder="TELEFONE..." required>
+    </br>
+        <button type="submit">Atualizar</button>
+        <button onclick="cancelarEdicao()">Cancelar</button>
+    </form>
+</body>
+</html>
